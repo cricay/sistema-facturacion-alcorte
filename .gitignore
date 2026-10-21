@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Entornos virtuales y credenciales
+.env
+.env.*
+!.env.example
+.envrc
+venv/
+.venv/
+env/
+ENV/
+
+# Archivos de compilación y distribución
+build/
+dist/
+*.egg-info/
+wheels/
+
+# Pruebas y caché
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Flask
+instance/
+.webassets-cache/
+
+# Editores
+.vscode/
+.idea/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+tempCodeRunnerFile.py
+
+# Proyecto AL CORTE
+# No publicar contraseñas ni credenciales privadas.
+# No ignorar los archivos de código del proyecto.
+
