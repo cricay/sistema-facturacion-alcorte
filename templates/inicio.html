@@ -1,19 +1,126 @@
-<!DOCTYPE html> 
-<html lang="es"> 
 
-<head> 
-    <meta charset="UTF-8"> 
-    <title>Facturación Al Corte</title>
+<!DOCTYPE html>
+<html lang="es">
 
-   <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
-</head> 
- 
-<body> 
- 
-    <h1>Sistema de Facturación Al Corte</h1> 
- 
-    <p>Bienvenido al sistema.</p> 
- 
-</body> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL CORTE | Sistema de Facturación</title>
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <aside class="menu-lateral">
+            <div class="marca">
+                <h2>AL CORTE</h2>
+                <p>Carnes Selectas</p>
+            </div>
+
+            <nav>
+                <a href="/" class="activo">Inicio</a>
+                <a href="#">Facturación</a>
+                <a href="#">Productos</a>
+                <a href="#">Inventario</a>
+                <a href="#">Clientes</a>
+                <a href="#">Proveedores</a>
+                <a href="#">Reportes</a>
+            </nav>
+
+            <div class="pie-menu">
+                Sistema de gestión
+            </div>
+        </aside>
+
+        <main class="contenido">
+
+            <header class="encabezado">
+                <div>
+                    <p class="subtitulo">PANEL PRINCIPAL</p>
+                    <h1>Bienvenido a AL CORTE</h1>
+                    <p class="descripcion">
+                        Administra tu negocio desde un solo lugar.
+                    </p>
+                </div>
+
+                <div class="etiqueta">
+                    Sistema de facturación
+                </div>
+            </header>
+
+            <section class="bienvenida">
+                <div>
+                    <p class="subtitulo">GESTIÓN COMERCIAL</p>
+                    <h2>Todo en orden, todo al corte.</h2>
+                    <p>
+                        Consulta y organiza las operaciones de tu negocio.
+                    </p>
+                </div>
+            </section>
+
+            <section class="seccion-modulos">
+                <h2>Módulos del sistema</h2>
+                <p class="texto-seccion">
+                    Selecciona el área que deseas gestionar.
+                </p>
+
+                <div class="rejilla-modulos">
+
+                    <article class="tarjeta">
+                        <div class="icono">F</div>
+                        <h3>Facturación</h3>
+                        <p>Gestiona las ventas y los comprobantes.</p>
+                        <span>Próximamente</span>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">P</div>
+                        <h3>Productos</h3>
+                        <p>Organiza carnes, referencias y precios.</p>
+                        <span>Próximamente</span>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">I</div>
+                        <h3>Inventario</h3>
+                        <p>Controla las existencias y movimientos.</p>
+                        <span>Próximamente</span>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">C</div>
+                        <h3>Clientes</h3>
+                        <p>Consulta y administra la información comercial.</p>
+                        <span>Próximamente</span>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">P</div>
+                        <h3>Proveedores</h3>
+                        <p>Organiza los datos de tus proveedores.</p>
+                        <span>Próximamente</span>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">R</div>
+                        <h3>Reportes</h3>
+                        <p>Prepara consultas y resúmenes del negocio.</p>
+                        <span>Próximamente</span>
+                    </article>
+
+                </div>
+            </section>
+
+            <footer class="pie-pagina">
+                AL CORTE Carnes Selectas · Sistema de gestión interno
+            </footer>
+
+        </main>
+
+    </div>
+
+</body>
 </html>
