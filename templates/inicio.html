@@ -1,17 +1,13 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AL CORTE | Sistema de Facturación</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 </head>
-
 <body>
-
     <div class="contenedor">
 
         <aside class="menu-lateral">
@@ -22,12 +18,15 @@
 
             <nav>
                 <a href="/" class="activo">Inicio</a>
-                <a href="#">Facturación</a>
-                <a href="#">Productos</a>
-                <a href="#">Inventario</a>
-                <a href="#">Clientes</a>
-                <a href="#">Proveedores</a>
-                <a href="#">Reportes</a>
+                <a href="/productos">Productos</a>
+                <a href="/clientes">Clientes</a>
+                <a href="/categorias">Categorías</a>
+                <a href="/usuarios">Usuarios</a>
+                <a href="/inventario">Inventario</a>
+                <a href="/productos/nuevo">Registrar producto</a>
+                <a href="/clientes/nuevo">Registrar cliente</a>
+                <a href="/categorias/nueva">Registrar categoría</a>
+                <a href="/usuarios/nuevo">Registrar usuario</a>
             </nav>
 
             <div class="pie-menu">
@@ -56,7 +55,8 @@
                     <p class="subtitulo">GESTIÓN COMERCIAL</p>
                     <h2>Todo en orden, todo al corte.</h2>
                     <p>
-                        Consulta y organiza las operaciones de tu negocio.
+                        Accede a los módulos y administra la información
+                        comercial de tu negocio.
                     </p>
                 </div>
             </section>
@@ -70,45 +70,53 @@
                 <div class="rejilla-modulos">
 
                     <article class="tarjeta">
-                        <div class="icono">F</div>
-                        <h3>Facturación</h3>
-                        <p>Gestiona las ventas y los comprobantes.</p>
-                        <span>Próximamente</span>
-                    </article>
-
-                    <article class="tarjeta">
                         <div class="icono">P</div>
                         <h3>Productos</h3>
-                        <p>Organiza carnes, referencias y precios.</p>
-                        <span>Próximamente</span>
-                    </article>
-
-                    <article class="tarjeta">
-                        <div class="icono">I</div>
-                        <h3>Inventario</h3>
-                        <p>Controla las existencias y movimientos.</p>
-                        <span>Próximamente</span>
+                        <p>Consulta los productos, precios y categorías.</p>
+                        <a href="/productos">Consultar productos →</a>
                     </article>
 
                     <article class="tarjeta">
                         <div class="icono">C</div>
                         <h3>Clientes</h3>
-                        <p>Consulta y administra la información comercial.</p>
-                        <span>Próximamente</span>
+                        <p>Consulta y registra la información de tus clientes.</p>
+                        <a href="/clientes">Gestionar clientes →</a>
                     </article>
 
                     <article class="tarjeta">
-                        <div class="icono">P</div>
-                        <h3>Proveedores</h3>
-                        <p>Organiza los datos de tus proveedores.</p>
-                        <span>Próximamente</span>
+                        <div class="icono">G</div>
+                        <h3>Categorías</h3>
+                        <p>Organiza los productos por tipo de categoría.</p>
+                        <a href="/categorias">Gestionar categorías →</a>
                     </article>
 
                     <article class="tarjeta">
-                        <div class="icono">R</div>
-                        <h3>Reportes</h3>
-                        <p>Prepara consultas y resúmenes del negocio.</p>
-                        <span>Próximamente</span>
+                        <div class="icono">U</div>
+                        <h3>Usuarios</h3>
+                        <p>Administra los usuarios y sus roles.</p>
+                        <a href="/usuarios">Gestionar usuarios →</a>
+                    </article>
+
+                    <!-- NUEVO MÓDULO DE INVENTARIO -->
+                    <article class="tarjeta">
+                        <div class="icono">I</div>
+                        <h3>Inventario</h3>
+                        <p>Consulta las existencias y los niveles mínimos de tus productos.</p>
+                        <a href="/inventario">Gestionar inventario →</a>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">+</div>
+                        <h3>Registrar producto</h3>
+                        <p>Incorpora nuevos productos al catálogo.</p>
+                        <a href="/productos/nuevo">Nuevo producto →</a>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">+</div>
+                        <h3>Registrar cliente</h3>
+                        <p>Guarda los datos de nuevos clientes.</p>
+                        <a href="/clientes/nuevo">Nuevo cliente →</a>
                     </article>
 
                 </div>
@@ -119,8 +127,7 @@
             </footer>
 
         </main>
-
     </div>
-
 </body>
 </html>
+
