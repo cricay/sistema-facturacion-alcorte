@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}Clientes | AL CORTE{% endblock %}
+
+{% block content %}
+
+<section class="contenido-inicio">
+
+    <h2>Gestión de clientes</h2>
+
+    <p>Listado de clientes registrados en AL CORTE.</p>
+
+    <a href="{{ url_for('clientes.nuevo_cliente') }}">
+        + Nuevo cliente
+    </a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Documento</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.idCliente }}</td>
+                <td>{{ cliente.documento }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td>{{ cliente.direccion }}</td>
+                <td>{{ cliente.correo }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">No hay clientes registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Nuevo cliente | AL CORTE{% endblock %}
+
+{% block content %}
+
+<section class="contenido-inicio">
+
+    <h2>Registrar nuevo cliente</h2>
+
+    <form method="POST">
+
+        <label>Documento</label>
+        <input type="text" name="documento" required>
+
+        <label>Nombre completo</label>
+        <input type="text" name="nombre" required>
+
+        <label>Teléfono</label>
+        <input type="text" name="telefono">
+
+        <label>Dirección</label>
+        <input type="text" name="direccion">
+
+        <label>Correo electrónico</label>
+        <input type="email" name="correo">
+
+        <button type="submit">Guardar cliente</button>
+
+        <a href="{{ url_for('clientes.listar_clientes') }}">Cancelar</a>
+
+    </form>
+
+</section>
+
+{% endblock %}

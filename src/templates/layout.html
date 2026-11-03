@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AL CORTE{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <aside class="menu-lateral">
+
+            <div class="marca">
+                <h2>AL CORTE</h2>
+                <p>Sistema de Facturación</p>
+            </div>
+
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/productos">Productos</a>
+                <a href="/clientes">Clientes</a>
+                <a href="/categorias">Categorías</a>
+                <a href="/usuarios">Usuarios</a>
+                <a href="/inventario">Inventario</a>
+            </nav>
+
+            <div class="pie-menu">
+                Sistema de gestión AL CORTE
+            </div>
+
+        </aside>
+
+        <main class="contenido">
+
+            {% block content %}
+            {% endblock %}
+
+            <footer class="pie-pagina">
+                AL CORTE - Sistema de Facturación
+            </footer>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

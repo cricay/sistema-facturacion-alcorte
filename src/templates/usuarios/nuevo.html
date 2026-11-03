@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}Nuevo usuario | AL CORTE{% endblock %}
+
+{% block content %}
+
+<section class="contenido-inicio">
+
+    <h2>Registrar nuevo usuario</h2>
+
+    <form method="POST">
+
+        <label>Nombre completo</label>
+        <input type="text" name="nombre" maxlength="100" required>
+
+        <label>Nombre de usuario</label>
+        <input type="text" name="usuario" maxlength="50" required>
+
+        <label>Contraseña</label>
+        <input type="password" name="contrasena" required>
+
+        <label>Estado</label>
+        <select name="estado" required>
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+        </select>
+
+        <label>Rol</label>
+        <select name="idRol" required>
+            <option value="">Seleccione un rol</option>
+            {% for rol in roles %}
+            <option value="{{ rol.idRol }}">{{ rol.nombre }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Guardar usuario</button>
+
+        <a href="{{ url_for('usuarios.listar_usuarios') }}">Cancelar</a>
+
+    </form>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}Inicio | AL CORTE{% endblock %}
+
+{% block content %}
+
+<header class="encabezado">
+    <div>
+        <p class="subtitulo">PANEL PRINCIPAL</p>
+        <h1>Bienvenido a AL CORTE</h1>
+        <p class="descripcion">
+            Sistema de facturación y gestión de la carnicería.
+        </p>
+    </div>
+
+    <div class="etiqueta">Sistema de gestión</div>
+</header>
+
+<section class="bienvenida">
+    <h2>Gestión integral del negocio</h2>
+    <p>
+        Administra los productos, clientes, categorías, usuarios e inventario
+        desde una sola plataforma.
+    </p>
+</section>
+
+<section class="seccion-modulos">
+
+    <h2>Módulos del sistema</h2>
+    <p class="texto-seccion">Selecciona el módulo que deseas consultar.</p>
+
+    <div class="rejilla-modulos">
+
+        <a href="/productos" class="tarjeta">
+            <div class="icono">P</div>
+            <h3>Productos</h3>
+            <p>Consulta y administra los productos registrados.</p>
+            <span>GESTIONAR PRODUCTOS →</span>
+        </a>
+
+        <a href="/clientes" class="tarjeta">
+            <div class="icono">C</div>
+            <h3>Clientes</h3>
+            <p>Administra la información de los clientes.</p>
+            <span>GESTIONAR CLIENTES →</span>
+        </a>
+
+        <a href="/categorias" class="tarjeta">
+            <div class="icono">CT</div>
+            <h3>Categorías</h3>
+            <p>Organiza los productos por categorías.</p>
+            <span>GESTIONAR CATEGORÍAS →</span>
+        </a>
+
+        <a href="/usuarios" class="tarjeta">
+            <div class="icono">U</div>
+            <h3>Usuarios</h3>
+            <p>Administra los usuarios y sus roles.</p>
+            <span>GESTIONAR USUARIOS →</span>
+        </a>
+
+        <a href="/inventario" class="tarjeta">
+            <div class="icono">I</div>
+            <h3>Inventario</h3>
+            <p>Consulta las existencias y el stock mínimo.</p>
+            <span>CONSULTAR INVENTARIO →</span>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

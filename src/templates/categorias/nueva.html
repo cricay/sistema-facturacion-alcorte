@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Nueva categoría | AL CORTE{% endblock %}
+
+{% block content %}
+
+<section class="contenido-inicio">
+
+    <h2>Registrar nueva categoría</h2>
+
+    <form method="POST">
+
+        <label>Nombre de la categoría</label>
+        <input type="text" name="nombre" required>
+
+        <label>Descripción</label>
+        <textarea name="descripcion"></textarea>
+
+        <label>Estado</label>
+        <select name="estado" required>
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+        </select>
+
+        <button type="submit">Guardar categoría</button>
+
+        <a href="{{ url_for('categorias.listar_categorias') }}">Cancelar</a>
+
+    </form>
+
+</section>
+
+{% endblock %}

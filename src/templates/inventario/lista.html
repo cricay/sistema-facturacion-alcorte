@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}Inventario | AL CORTE{% endblock %}
+
+{% block content %}
+
+<section class="contenido-inicio">
+
+    <h2>Control de inventario</h2>
+
+    <p>Consulta de existencias y niveles mínimos de productos.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID producto</th>
+                <th>Producto</th>
+                <th>Existencia</th>
+                <th>Stock mínimo</th>
+                <th>Última actualización</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in inventario %}
+            <tr>
+                <td>{{ item.idProducto }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.existencia }}</td>
+                <td>{{ item.stockMinimo }}</td>
+                <td>{{ item.fechaActualizacion }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">No hay registros de inventario.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+
+{% extends "layout.html" %}
+
+{% block title %}Categorías | AL CORTE{% endblock %}
+
+{% block content %}
+
+<header class="encabezado">
+    <div>
+        <p class="subtitulo">GESTIÓN DEL NEGOCIO</p>
+        <h1>Categorías</h1>
+        <p class="descripcion">
+            Consulta y administra las categorías de productos.
+        </p>
+    </div>
+
+    <div class="etiqueta">Módulo de categorías</div>
+</header>
+
+<section class="seccion-modulos">
+
+    <div class="encabezado-seccion">
+        <div>
+            <h2>Listado de categorías</h2>
+            <p class="texto-seccion">
+                Categorías registradas en AL CORTE.
+            </p>
+        </div>
+
+        <a href="{{ url_for('categorias.nueva_categoria') }}" class="boton">
+            + Nueva categoría
+        </a>
+    </div>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre de la categoría</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.idCategoria }}</td>
+                    <td>{{ categoria.nombreCategoria }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="2">No hay categorías registradas.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="acciones-pagina">
+        <a href="{{ url_for('home.inicio') }}">← Volver al inicio</a>
+    </div>
+
+</section>
+
+{% endblock %}
