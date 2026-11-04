@@ -3,14 +3,21 @@
 
 {% block title %}Nuevo producto | AL CORTE{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-productos.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <header class="encabezado">
     <div>
         <p class="subtitulo">GESTIÓN DEL NEGOCIO</p>
         <h1>Registrar producto</h1>
-        <p class="descripcion">Ingresa la información del nuevo producto.</p>
+        <p class="descripcion">
+            Ingresa la información del nuevo producto.
+        </p>
     </div>
+
     <div class="etiqueta">Módulo de productos</div>
 </header>
 
@@ -19,27 +26,53 @@
     <div class="encabezado-seccion">
         <div>
             <h2>Información del producto</h2>
-            <p class="texto-seccion">Los campos marcados son obligatorios.</p>
+            <p class="texto-seccion">
+                Los campos marcados son obligatorios.
+            </p>
         </div>
     </div>
 
-    <form action="{{ url_for('productos.nuevo_producto') }}" method="POST">
+    <form
+        action="{{ url_for('productos.nuevo_producto') }}"
+        method="POST"
+        class="formulario-producto"
+    >
 
         <div class="formulario-grid">
 
             <div class="campo">
                 <label for="codigo">Código *</label>
-                <input type="text" id="codigo" name="codigo" required>
+                <input
+                    type="text"
+                    id="codigo"
+                    name="codigo"
+                    placeholder="Ej. RES001"
+                    required
+                >
             </div>
 
             <div class="campo">
                 <label for="nombre">Nombre del producto *</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Nombre del producto"
+                    required
+                >
             </div>
 
             <div class="campo">
                 <label for="precio">Precio *</label>
-                <input type="number" id="precio" name="precio" min="0" step="0.01" required>
+                <input
+                    type="number"
+                    id="precio"
+                    name="precio"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ingrese el precio"
+                    required
+                >
             </div>
 
             <div class="campo">
@@ -53,7 +86,14 @@
 
             <div class="campo">
                 <label for="stockMinimo">Stock mínimo</label>
-                <input type="number" id="stockMinimo" name="stockMinimo" min="0" step="0.01" value="0">
+                <input
+                    type="number"
+                    id="stockMinimo"
+                    name="stockMinimo"
+                    min="0"
+                    step="0.01"
+                    value="0"
+                >
             </div>
 
             <div class="campo">
@@ -68,19 +108,29 @@
                 <label for="idCategoria">Categoría *</label>
                 <select id="idCategoria" name="idCategoria" required>
                     <option value="">Selecciona una categoría</option>
+
                     {% for categoria in categorias %}
                     <option value="{{ categoria.idCategoria }}">
                         {{ categoria.nombreCategoria }}
                     </option>
                     {% endfor %}
+
                 </select>
             </div>
 
         </div>
 
         <div class="acciones-formulario">
-            <button type="submit" class="boton">Guardar producto</button>
-            <a href="{{ url_for('productos.listar_productos') }}">Cancelar</a>
+            <button type="submit" class="boton">
+                Guardar producto
+            </button>
+
+            <a
+                href="{{ url_for('productos.listar_productos') }}"
+                class="boton-cancelar"
+            >
+                Cancelar
+            </a>
         </div>
 
     </form>
@@ -88,3 +138,4 @@
 </section>
 
 {% endblock %}
+

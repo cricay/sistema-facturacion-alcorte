@@ -1,30 +1,66 @@
+
 {% extends "layout.html" %}
 
 {% block title %}Nueva categoría | AL CORTE{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-categorias.css') }}">
+{% endblock %}
+
 {% block content %}
 
-<section class="contenido-inicio">
+<header class="encabezado">
+    <div>
+        <p class="subtitulo">GESTIÓN DEL NEGOCIO</p>
+        <h1>Registrar nueva categoría</h1>
+        <p class="descripcion">Ingresa la información de la categoría que deseas crear.</p>
+    </div>
 
-    <h2>Registrar nueva categoría</h2>
+    <div class="etiqueta">CATEGORÍAS</div>
+</header>
 
-    <form method="POST">
+<section class="seccion-modulos">
 
-        <label>Nombre de la categoría</label>
-        <input type="text" name="nombre" required>
+    <div class="encabezado-seccion">
+        <div>
+            <h2>Información de la categoría</h2>
+            <p class="texto-seccion">Completa los datos solicitados.</p>
+        </div>
+    </div>
 
-        <label>Descripción</label>
-        <textarea name="descripcion"></textarea>
+    <form method="POST" class="formulario-categoria">
 
-        <label>Estado</label>
-        <select name="estado" required>
-            <option value="Activo">Activo</option>
-            <option value="Inactivo">Inactivo</option>
-        </select>
+        <div class="formulario-grid-categoria">
 
-        <button type="submit">Guardar categoría</button>
+            <div class="campo-categoria">
+                <label for="nombre">Nombre de la categoría *</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
 
-        <a href="{{ url_for('categorias.listar_categorias') }}">Cancelar</a>
+            <div class="campo-categoria campo-categoria-completo">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+            </div>
+
+            <div class="campo-categoria">
+                <label for="estado">Estado *</label>
+                <select id="estado" name="estado" required>
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="acciones-formulario">
+            <button type="submit" class="boton boton-principal">
+                Guardar categoría
+            </button>
+
+            <a href="{{ url_for('categorias.listar_categorias') }}" class="boton-cancelar">
+                Cancelar
+            </a>
+        </div>
 
     </form>
 

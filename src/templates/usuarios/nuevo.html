@@ -1,41 +1,89 @@
+
 {% extends "layout.html" %}
 
 {% block title %}Nuevo usuario | AL CORTE{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-usuarios.css') }}">
+{% endblock %}
+
 {% block content %}
 
-<section class="contenido-inicio">
+<header class="encabezado">
+    <div>
+        <p class="subtitulo">GESTIÓN DEL NEGOCIO</p>
+        <h1>Registrar nuevo usuario</h1>
+        <p class="descripcion">
+            Ingresa los datos de acceso y configuración del usuario.
+        </p>
+    </div>
 
-    <h2>Registrar nuevo usuario</h2>
+    <div class="etiqueta">USUARIOS</div>
+</header>
 
-    <form method="POST">
+<section class="seccion-modulos">
 
-        <label>Nombre completo</label>
-        <input type="text" name="nombre" maxlength="100" required>
+    <div class="encabezado-seccion">
+        <div>
+            <h2>Información del usuario</h2>
+            <p class="texto-seccion">
+                Completa los campos para crear el usuario.
+            </p>
+        </div>
+    </div>
 
-        <label>Nombre de usuario</label>
-        <input type="text" name="usuario" maxlength="50" required>
+    <form method="POST" class="formulario-usuario">
 
-        <label>Contraseña</label>
-        <input type="password" name="contrasena" required>
+        <div class="formulario-grid-usuario">
 
-        <label>Estado</label>
-        <select name="estado" required>
-            <option value="Activo">Activo</option>
-            <option value="Inactivo">Inactivo</option>
-        </select>
+            <div class="campo-usuario">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre"
+                       maxlength="100" required>
+            </div>
 
-        <label>Rol</label>
-        <select name="idRol" required>
-            <option value="">Seleccione un rol</option>
-            {% for rol in roles %}
-            <option value="{{ rol.idRol }}">{{ rol.nombre }}</option>
-            {% endfor %}
-        </select>
+            <div class="campo-usuario">
+                <label for="usuario">Nombre de usuario *</label>
+                <input type="text" id="usuario" name="usuario"
+                       maxlength="50" required>
+            </div>
 
-        <button type="submit">Guardar usuario</button>
+            <div class="campo-usuario">
+                <label for="contrasena">Contraseña *</label>
+                <input type="password" id="contrasena"
+                       name="contrasena" required>
+            </div>
 
-        <a href="{{ url_for('usuarios.listar_usuarios') }}">Cancelar</a>
+            <div class="campo-usuario">
+                <label for="estado">Estado *</label>
+                <select id="estado" name="estado" required>
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
+            </div>
+
+            <div class="campo-usuario">
+                <label for="idRol">Rol *</label>
+                <select id="idRol" name="idRol" required>
+                    <option value="">Seleccione un rol</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Cajero</option>
+                    <option value="3">Auxiliar de Inventario</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="acciones-formulario">
+            <button type="submit" class="boton boton-principal">
+                Guardar usuario
+            </button>
+
+            <a href="{{ url_for('usuarios.listar_usuarios') }}"
+               class="boton-cancelar">
+                Cancelar
+            </a>
+        </div>
 
     </form>
 

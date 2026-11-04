@@ -3,6 +3,10 @@
 
 {% block title %}Categorías | AL CORTE{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-categorias.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <header class="encabezado">
@@ -14,7 +18,7 @@
         </p>
     </div>
 
-    <div class="etiqueta">Módulo de categorías</div>
+    <div class="etiqueta">MÓDULO DE CATEGORÍAS</div>
 </header>
 
 <section class="seccion-modulos">
@@ -27,12 +31,12 @@
             </p>
         </div>
 
-        <a href="{{ url_for('categorias.nueva_categoria') }}" class="boton">
+        <a href="{{ url_for('categorias.nueva_categoria') }}" class="boton boton-principal">
             + Nueva categoría
         </a>
     </div>
 
-    <div class="tabla-contenedor">
+    <div class="tabla-contenedor tabla-categorias">
         <table>
             <thead>
                 <tr>
@@ -49,7 +53,9 @@
                 </tr>
                 {% else %}
                 <tr>
-                    <td colspan="2">No hay categorías registradas.</td>
+                    <td colspan="2" class="sin-registros">
+                        No hay categorías registradas.
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

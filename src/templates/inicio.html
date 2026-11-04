@@ -1,6 +1,11 @@
+
 {% extends "layout.html" %}
 
 {% block title %}Inicio | AL CORTE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-inicio.css') }}">
+{% endblock %}
 
 {% block content %}
 
@@ -27,7 +32,9 @@
 <section class="seccion-modulos">
 
     <h2>Módulos del sistema</h2>
-    <p class="texto-seccion">Selecciona el módulo que deseas consultar.</p>
+    <p class="texto-seccion">
+        Selecciona el módulo que deseas consultar.
+    </p>
 
     <div class="rejilla-modulos">
 

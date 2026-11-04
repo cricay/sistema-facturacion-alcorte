@@ -2,41 +2,68 @@
 
 {% block title %}Inventario | AL CORTE{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-inventario.css') }}">
+{% endblock %}
+
 {% block content %}
 
-<section class="contenido-inicio">
+<section class="seccion-modulos">
 
-    <h2>Control de inventario</h2>
+    <header class="encabezado">
+        <div>
+            <p class="subtitulo">GESTIÓN DEL NEGOCIO</p>
+            <h1>Control de inventario</h1>
+            <p class="descripcion">
+                Consulta las existencias y los niveles mínimos de los productos.
+            </p>
+        </div>
 
-    <p>Consulta de existencias y niveles mínimos de productos.</p>
+        <div class="etiqueta">INVENTARIO</div>
+    </header>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID producto</th>
-                <th>Producto</th>
-                <th>Existencia</th>
-                <th>Stock mínimo</th>
-                <th>Última actualización</th>
-            </tr>
-        </thead>
+    <section class="contenedor-tabla">
 
-        <tbody>
-            {% for item in inventario %}
-            <tr>
-                <td>{{ item.idProducto }}</td>
-                <td>{{ item.nombre }}</td>
-                <td>{{ item.existencia }}</td>
-                <td>{{ item.stockMinimo }}</td>
-                <td>{{ item.fechaActualizacion }}</td>
-            </tr>
-            {% else %}
-            <tr>
-                <td colspan="5">No hay registros de inventario.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="encabezado-tabla">
+            <h2>Existencias de productos</h2>
+            <p>Consulta el estado actual del inventario.</p>
+        </div>
+
+        <div class="tabla-responsive">
+            <table class="tabla-inventario">
+
+                <thead>
+                    <tr>
+                        <th>ID producto</th>
+                        <th>Producto</th>
+                        <th>Existencia</th>
+                        <th>Stock mínimo</th>
+                        <th>Última actualización</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item in inventario %}
+                    <tr>
+                        <td>{{ item.idProducto }}</td>
+                        <td>{{ item.nombre }}</td>
+                        <td>{{ item.existencia }}</td>
+                        <td>{{ item.stockMinimo }}</td>
+                        <td>{{ item.fechaActualizacion }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="sin-registros">
+                            No hay registros de inventario.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
 
 </section>
 

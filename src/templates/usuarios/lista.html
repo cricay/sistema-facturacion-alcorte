@@ -1,48 +1,74 @@
+
 {% extends "layout.html" %}
 
 {% block title %}Usuarios | AL CORTE{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-usuarios.css') }}">
+{% endblock %}
+
 {% block content %}
 
-<section class="contenido-inicio">
+<header class="encabezado">
+    <div>
+        <p class="subtitulo">GESTIÓN DEL NEGOCIO</p>
+        <h1>Gestión de usuarios</h1>
+        <p class="descripcion">
+            Consulta y administra los usuarios registrados en el sistema.
+        </p>
+    </div>
 
-    <h2>Gestión de usuarios</h2>
+    <div class="etiqueta">MÓDULO DE USUARIOS</div>
+</header>
 
-    <p>Listado de usuarios registrados en el sistema.</p>
+<section class="seccion-modulos">
 
-    <a href="{{ url_for('usuarios.nuevo_usuario') }}">
-        + Nuevo usuario
-    </a>
+    <div class="encabezado-seccion">
+        <div>
+            <h2>Listado de usuarios</h2>
+            <p class="texto-seccion">
+                Usuarios registrados en AL CORTE.
+            </p>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Usuario</th>
-                <th>Rol</th>
-                <th>Estado</th>
-                <th>Fecha de registro</th>
-            </tr>
-        </thead>
+        <a href="{{ url_for('usuarios.nuevo_usuario') }}" class="boton boton-principal">
+            + Nuevo usuario
+        </a>
+    </div>
 
-        <tbody>
-            {% for usuario in usuarios %}
-            <tr>
-                <td>{{ usuario.idUsuario }}</td>
-                <td>{{ usuario.nombre }}</td>
-                <td>{{ usuario.usuario }}</td>
-                <td>{{ usuario.rol }}</td>
-                <td>{{ usuario.estado }}</td>
-                <td>{{ usuario.fechaRegistro }}</td>
-            </tr>
-            {% else %}
-            <tr>
-                <td colspan="6">No hay usuarios registrados.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="tabla-contenedor tabla-usuarios">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th>Fecha de registro</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.idUsuario }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.usuario }}</td>
+                    <td>{{ usuario.rol }}</td>
+                    <td>{{ usuario.estado }}</td>
+                    <td>{{ usuario.fechaRegistro }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="sin-registros">
+                        No hay usuarios registrados.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 </section>
 

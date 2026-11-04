@@ -1,33 +1,73 @@
+
 {% extends "layout.html" %}
 
 {% block title %}Nuevo cliente | AL CORTE{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-clientes.css') }}">
+{% endblock %}
+
 {% block content %}
 
-<section class="contenido-inicio">
+<header class="encabezado">
+    <div>
+        <p class="subtitulo">GESTIÓN DEL NEGOCIO</p>
+        <h1>Registrar nuevo cliente</h1>
+        <p class="descripcion">Ingresa la información del cliente en el sistema.</p>
+    </div>
 
-    <h2>Registrar nuevo cliente</h2>
+    <div class="etiqueta">CLIENTES</div>
+</header>
 
-    <form method="POST">
+<section class="seccion-clientes">
 
-        <label>Documento</label>
-        <input type="text" name="documento" required>
+    <div class="encabezado-seccion">
+        <div>
+            <h2>Información del cliente</h2>
+            <p>Completa los datos solicitados para registrar el cliente.</p>
+        </div>
+    </div>
 
-        <label>Nombre completo</label>
-        <input type="text" name="nombre" required>
+    <form method="POST" class="formulario-cliente">
 
-        <label>Teléfono</label>
-        <input type="text" name="telefono">
+        <div class="formulario-grid">
 
-        <label>Dirección</label>
-        <input type="text" name="direccion">
+            <div class="campo-cliente">
+                <label for="documento">Documento *</label>
+                <input type="text" id="documento" name="documento" required>
+            </div>
 
-        <label>Correo electrónico</label>
-        <input type="email" name="correo">
+            <div class="campo-cliente">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
 
-        <button type="submit">Guardar cliente</button>
+            <div class="campo-cliente">
+                <label for="telefono">Teléfono</label>
+                <input type="text" id="telefono" name="telefono">
+            </div>
 
-        <a href="{{ url_for('clientes.listar_clientes') }}">Cancelar</a>
+            <div class="campo-cliente">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion">
+            </div>
+
+            <div class="campo-cliente campo-completo">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo">
+            </div>
+
+        </div>
+
+        <div class="acciones-formulario">
+            <button type="submit" class="boton boton-principal">
+                Guardar cliente
+            </button>
+
+            <a href="{{ url_for('clientes.listar_clientes') }}" class="boton-cancelar">
+                Cancelar
+            </a>
+        </div>
 
     </form>
 
