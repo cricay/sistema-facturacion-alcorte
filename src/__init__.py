@@ -1,4 +1,8 @@
+import os
 from flask import Flask
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def create_app():
@@ -9,7 +13,10 @@ def create_app():
         static_folder='static'
     )
 
-    app.secret_key = "alcorte_clave_local_2026"
+    app.secret_key = os.getenv("SECRET_KEY")
+
+    if not app.secret_key:
+        raise RuntimeError("No se encontró SECRET_KEY en el archivo .env")
 
     from src.controllers.home_controller import home_bp
     from src.controllers.productos_controller import productos_bp

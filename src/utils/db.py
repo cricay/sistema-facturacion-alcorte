@@ -3,23 +3,39 @@ from conexion import obtener_conexion
 
 def consultar(sql, parametros=()):
     conexion = obtener_conexion()
-    cursor = conexion.cursor(dictionary=True)
+
+    if conexion is None:
+        raise ConnectionError(
+            "No fue posible establecer conexión con la base de datos."
+        )
+
+    cursor = None
 
     try:
+        cursor = conexion.cursor(dictionary=True)
         cursor.execute(sql, parametros)
         resultados = cursor.fetchall()
         return resultados
 
     finally:
-        cursor.close()
+        if cursor is not None:
+            cursor.close()
+
         conexion.close()
 
 
 def ejecutar(sql, parametros=()):
     conexion = obtener_conexion()
-    cursor = conexion.cursor()
+
+    if conexion is None:
+        raise ConnectionError(
+            "No fue posible establecer conexión con la base de datos."
+        )
+
+    cursor = None
 
     try:
+        cursor = conexion.cursor()
         cursor.execute(sql, parametros)
         conexion.commit()
         return cursor.lastrowid
@@ -29,5 +45,7 @@ def ejecutar(sql, parametros=()):
         raise
 
     finally:
-        cursor.close()
+        if cursor is not None:
+            cursor.close()
+
         conexion.close()
